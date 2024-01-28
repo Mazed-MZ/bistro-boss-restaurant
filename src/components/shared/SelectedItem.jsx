@@ -8,11 +8,11 @@ export default function SelectedItem() {
     console.log(SelectedDessert);
 
     return (
-        <div className='mb-28'>
+        <div className='mb-28 pt-16'>
 
             {/* ---->>>> Mobile Device <<<<---- */}
             <div className='md:hidden'>
-                <div className="carousel max-w-md p-4 space-x-4 bg-neutral rounded-box">
+                <div className="carousel max-w-md mt-12 space-x-4 bg-neutral rounded-box">
                     <div className="carousel-item">
                         <img src={SelectedDessert.imageTwo} className="rounded-box" />
                     </div>
@@ -31,7 +31,7 @@ export default function SelectedItem() {
 
 
             {/* ---->>>> Desktop Version <<<<<----- */}
-            <div className='text-center m-12 md:block hidden'>
+            <div className='text-center ml-48 mt-16 md:block hidden'>
                 <div className="carousel rounded-box">
                     <div className="hover:bg-scale-110 carousel-item hover:ease-in-out hover:delay-150 hover:-translate-y-1 hover:scale-110 duration-500 m-5">
                         <img src={SelectedDessert.imageTwo} alt="Burger" />
@@ -61,16 +61,17 @@ export default function SelectedItem() {
 
                 <div className='mt-5'>
                     <div role="tablist" className="tabs tabs-bordered">
+
+                    <input type="radio" name="my_tabs_1" role="tab" className="text-xl tab" aria-label="Price" checked />
+                        <div role="tabpanel" className="tab-content p-10">
+                            <p className='text-4xl'>${SelectedDessert.price}</p>
+                            <button className="mt-3 btn btn-outline btn-success"><FontAwesomeIcon icon={faCartShopping} fade size="2xl" style={{ color: "#FFD43B", }} /></button>
+                        </div>
+
                         <input type="radio" name="my_tabs_1" role="tab" className="text-xl tab" aria-label="Origin" />
                         <div role="tabpanel" className="tab-content p-5">
                             <img src={SelectedDessert.flag} alt="" />
                             <p className='text-center pt-3'>{SelectedDessert.origin}</p>
-                        </div>
-
-                        <input type="radio" name="my_tabs_1" role="tab" className="text-xl tab" aria-label="Price" checked />
-                        <div role="tabpanel" className="tab-content p-10">
-                            <p className='text-4xl'>${SelectedDessert.price}</p>
-                            <button className="mt-3 btn btn-outline btn-success"><FontAwesomeIcon icon={faCartShopping} fade size="2xl" style={{ color: "#FFD43B", }} /></button>
                         </div>
                     </div>
                 </div>

@@ -15,7 +15,7 @@ export default function PopularItem() {
             <div className="md:ml-72 md:mr-72 mt-8">
                 <div className="divider divider-secondary italic"><p>•→ Check it out ←•</p></div>
             </div>
-            <div className='md:grid md:grid-cols-2 md:gap-3 md:m-28'>
+            <div className='md:grid md:grid-cols-2 md:gap-3 md:ml-28 md:mr-28 md:mt-8'>
                 {
                     popular.map(items => <FoodsCart items={items} key={items.id}></FoodsCart>)
                 }

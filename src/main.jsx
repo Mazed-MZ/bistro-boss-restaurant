@@ -6,12 +6,24 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import {
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query';
 import Home from './components/Home/Home.jsx';
 import FoodMenu from './components/Foods Menu/FoodMenu.jsx';
 import NotFound from './components/NotFound/NotFound.jsx';
 import { HelmetProvider } from 'react-helmet-async';
 import Desserts from './components/Foods Menu/Desserts/Desserts.jsx';
 import SelectedItem from './components/shared/selectedItem.jsx';
+import Login from './components/Login/Login.jsx';
+import SignUp from './components/SignUp/SignUp.jsx';
+import AuthProvider from './components/providers/AuthProviders.jsx';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute.jsx';
+import Dashboard from './components/Dashboard/Dashboard.jsx';
+import MyCart from './components/Dashboard/MyCart/MyCart.jsx';
+import Profile from './components/Dashboard/Profile/Profile.jsx';
+import AllUsers from './components/Dashboard/AllUsers/AllUsers.jsx';
 
 
 const router = createBrowserRouter([
@@ -40,6 +52,14 @@ const router = createBrowserRouter([
         element: <SelectedItem></SelectedItem>,
         loader: ({ params }) => fetch(`http://localhost:5000/allmenu/${params.catagoryId}`)
       },
+      {
+        path: "/login",
+        element: <Login></Login>
+      },
+      {
+        path: "/signup",
+        element: <SignUp></SignUp>
+      }
       // {
       //   path: "//:dessertId",
       //   element: <SelectedDessert></SelectedDessert>,
@@ -47,12 +67,37 @@ const router = createBrowserRouter([
       // }
     ]
   },
+  {
+    path: "dashboard",
+    element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+    children: [
+      {
+        path: "/dashboard",
+        element: <Profile></Profile>
+      },
+      {
+        path: "/dashboard/mycart",
+        element: <MyCart></MyCart>
+      },
+      {
+        path: "/dashboard/allusers",
+        element: <AllUsers></AllUsers>
+      }
+    ]
+  }
 ]);
 
+const queryClient = new QueryClient()
+
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <HelmetProvider>
-    <React.StrictMode>
-      <RouterProvider router={router} />
-    </React.StrictMode>
-  </HelmetProvider>,
+
+  <React.StrictMode>
+    <AuthProvider>
+      <HelmetProvider>
+        <QueryClientProvider client={queryClient}>
+          <RouterProvider router={router} />
+        </QueryClientProvider>
+      </HelmetProvider>
+    </AuthProvider>
+  </React.StrictMode>,
 )

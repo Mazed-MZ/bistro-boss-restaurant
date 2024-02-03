@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 
 export default function NotFound() {
 
@@ -19,7 +20,7 @@ export default function NotFound() {
         formData.append('file', file);
         // console.log(formData)
 
-        fetch('http://localhost:5000/addDoctor', {
+        fetch('http://localhost:5000/addImage', {
             method: 'POST',
             body: formData
         })
@@ -29,12 +30,25 @@ export default function NotFound() {
 
 
     return (
-        <div className='text-center p-28'>
-            <h1 className='text-5xl m-12'>404 Page not Found</h1>
-            <form onSubmit={handleSubmit}>
-                <input onChange={handleFileChange} type="file" name="file" id="" />
-                <input className='btn btn-outline btn-primary' type="submit" name='submit' />
-            </form>
+        <div className='text-center pl-10 pr-10 pt-20'>
+            <div>
+                <div className="hero md:min-h-screen" style={{ backgroundImage: 'url(http://localhost:5000/404.gif)' }}>
+                    <div className="hero-overlay bg-opacity-60"></div>
+                    <div className="hero-content text-center text-neutral-content">
+                        <div className="max-w-md">
+                            <h1 className="mb-5 text-xl font-bold">Oops..Sorry!!!</h1>
+                            <p className="mb-5">This page not found</p>
+                            <Link to="/"><button className='btn btn-outline btn-primary'>Back To Home Page</button></Link>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className='pt-28'>
+                <form onSubmit={handleSubmit}>
+                    <input onChange={handleFileChange} type="file" name="file" id="" />
+                    <input className='btn btn-outline btn-primary' type="submit" name='submit' />
+                </form>
+            </div>
         </div>
     )
 }

@@ -24,7 +24,10 @@ import Dashboard from './components/Dashboard/Dashboard.jsx';
 import MyCart from './components/Dashboard/MyCart/MyCart.jsx';
 import Profile from './components/Dashboard/Profile/Profile.jsx';
 import AllUsers from './components/Dashboard/AllUsers/AllUsers.jsx';
-
+import AdminRoute from './components/PrivateRoute/AdminRoute.jsx';
+import AddItem from './components/Dashboard/AddItems/AddItem.jsx';
+import ManageItem from './components/Dashboard/ManageItems/ManageItem.jsx';
+import UpdateItem from './components/Dashboard/UpdateItem/UpdateItem.jsx';
 
 const router = createBrowserRouter([
   {
@@ -80,8 +83,21 @@ const router = createBrowserRouter([
         element: <MyCart></MyCart>
       },
       {
+        path: "/dashboard/addItem",
+        element: <AdminRoute><AddItem></AddItem></AdminRoute>
+      },
+      {
         path: "/dashboard/allusers",
-        element: <AllUsers></AllUsers>
+        element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
+      },
+      {
+        path: "/dashboard/manageItem",
+        element: <AdminRoute><ManageItem></ManageItem></AdminRoute>
+      },
+      {
+        path: "/dashboard/updateItem/:id",
+        element: <AdminRoute><UpdateItem></UpdateItem></AdminRoute>,
+        loader: ({params}) => fetch(`http://localhost:5000/allMenu/${params.id}`)
       }
     ]
   }

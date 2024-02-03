@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import DessertCart from './DessertCart';
-import useMenu from '../../shared/hooks';
+import useMenu from '../../shared/AllMenuData';
 
 export default function Desserts() {
 
@@ -13,7 +13,7 @@ export default function Desserts() {
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="hero-content text-center text-neutral-content">
                     <div className="max-w-lg">
-                        <h1 className="mb-5 text-5xl font-bold font-Times">DESSERTS</h1>
+                        <h1 className="mb-5 text-8xl font-bold font-Times">DESSERTS</h1>
                     </div>
                 </div>
             </div>

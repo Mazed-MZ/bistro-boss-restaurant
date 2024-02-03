@@ -1,4 +1,4 @@
-import useMenu from '../../shared/hooks';
+import useMenu from '../../shared/AllMenuData';
 import FoodsCart from '../../shared/FoodsCart';
 
 export default function TodayOffer() {

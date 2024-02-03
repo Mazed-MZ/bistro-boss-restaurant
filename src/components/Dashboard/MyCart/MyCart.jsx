@@ -3,17 +3,21 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Helmet } from "react-helmet-async";
 import useCart from "../../shared/useCart";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../shared/useAxiosSecure";
+import { Link } from "react-router-dom";
 
 export default function MyCart() {
 
   const [cart, refetch] = useCart();
-  console.log(cart);
-  const totalPrice = cart.reduce((sum, item) => item.price + sum, 0);
+  const [axiosSecure] = useAxiosSecure();
+  // console.log(cart);
+  const totalPrice = cart.reduce((sum, item) => parseInt(item.price) + sum, 0);
 
   const handleDelete = (foods) => {
+    console.log(foods._id)
     Swal.fire({
       title: "Are you sure?",
-      text: "This item will remove from your cart",
+      text: `${foods.title} will remove from your cart`,
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
@@ -26,6 +30,7 @@ export default function MyCart() {
         })
           .then(res => res.json())
           .then(data => {
+            console.log(data)
             if (data.deletedCount > 0) {
               refetch()
               Swal.fire({
@@ -120,14 +125,14 @@ export default function MyCart() {
                         </div>
                       </td>
                       <td className="font-bold">
-                        {foodItem.title}
+                        <Link to={`/allMenu/${foodItem.menuItemId}`}>{foodItem.title}</Link>
                       </td>
                       <td>
                         <div className="font-bold">${foodItem.price}</div>
                       </td>
                       <td><button onClick={() => handleDelete(foodItem)} className="btn btn-ghost"><FontAwesomeIcon icon={faTrashCan} size="2xl" style={{ color: "#ff5c5c", }} /></button></td>
                       <th>
-                        <button className="btn btn-ghost btn-xs">Details</button>
+                      <Link to={`/allMenu/${foodItem.menuItemId}`}><button className="btn btn-ghost btn-xs">Details</button></Link>
                       </th>
                     </tr>)
                 }

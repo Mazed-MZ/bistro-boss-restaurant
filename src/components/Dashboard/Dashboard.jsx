@@ -39,9 +39,9 @@ export default function Dashboard() {
                                         {/* All user excess this menu */}
                                         <div className='border-base-content border-t-4 pt-5'>
                                             <li><Link to="/dashboard"><FontAwesomeIcon icon={faUserTie} style={{ color: "#FFD43B", }} />Admin Dashboard</Link></li>
-                                            <li><Link to="/dashboard/mycart"><FontAwesomeIcon icon={faUtensils} style={{color: "#FFD43B",}} />Add Items</Link></li>
-                                            <li><Link to="/"><FontAwesomeIcon icon={faListCheck} style={{color: "#FFD43B",}} />Manage Items</Link></li>
-                                            <li><Link to="/"><FontAwesomeIcon icon={faBook} style={{color: "#FFD43B",}} />Manage Bookings</Link></li>
+                                            <li><Link to="/dashboard/addItem"><FontAwesomeIcon icon={faUtensils} style={{color: "#FFD43B",}} />Add Items</Link></li>
+                                            <li><Link to="/dashboard/manageItem"><FontAwesomeIcon icon={faListCheck} style={{color: "#FFD43B",}} />Manage Items</Link></li>
+                                            <li><Link to="/d"><FontAwesomeIcon icon={faBook} style={{color: "#FFD43B",}} />Manage Bookings</Link></li>
                                             <li><Link to="/dashboard/allusers"><FontAwesomeIcon icon={faUsers} style={{color: "#FFD43B",}} />All Users</Link></li>
                                         </div>
                                     </> :
@@ -61,7 +61,7 @@ export default function Dashboard() {
 
                             <div className='border-t-2 border-base-content'>
                                 <li><Link to="/"><FontAwesomeIcon icon={faHouse} style={{ color: "#FFD43B", }} />Home</Link></li>
-                                <li><Link to="/"><FontAwesomeIcon icon={faBars} style={{ color: "#FFD43B", }} />Foods Menu</Link></li>
+                                <li><Link to="/foodmenu"><FontAwesomeIcon icon={faBars} style={{ color: "#FFD43B", }} />Foods Menu</Link></li>
                                 <li><Link to="/"><FontAwesomeIcon icon={faStore} style={{ color: "#FFD43B", }} />Shop</Link></li>
                                 <li><Link to="/"><FontAwesomeIcon icon={faEnvelope} style={{ color: "#FFD43B", }} />Contact</Link></li>
                             </div>

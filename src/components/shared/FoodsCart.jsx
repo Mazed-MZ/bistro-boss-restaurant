@@ -4,11 +4,74 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { UserContext } from '../providers/AuthProviders';
+import useCart from './useCart';
+import { useContext } from 'react';
+import Swal from 'sweetalert2';
 
 export default function FoodsCart({items}) {
 
     const { title, description, price, imageOne, _id } = items;
+
+    const { user } = useContext(UserContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const [, refetch] = useCart();
+
+    const Toast = Swal.mixin({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.onmouseenter = Swal.stopTimer;
+            toast.onmouseleave = Swal.resumeTimer;
+        }
+    });
+
+    const handleAddToCart = (items) => {
+        // console.log(item)
+        if (user && user.email) {
+            const orderItem = { menuItemId: _id, title, imageOne, price, email: user.email }
+            fetch('http://localhost:5000/carts', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(orderItem)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    if (data.insertedId) {
+                        refetch();
+                        Toast.fire({
+                            icon: "success",
+                            title: `${orderItem.title} is Added successfully`
+                        });
+                    }
+                })
+        }
+        else {
+            Swal.fire({
+                title: "Opps😢",
+                text: "You have to login first",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Login"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    navigate('/login', { state: { from: location } });
+                }
+            });
+        }
+    }
+
+
 
     return (
         <div>
@@ -25,8 +88,8 @@ export default function FoodsCart({items}) {
                                 <Typography variant="h4" color="#FFA500" component="div" sx={{ pt: 3 }}>
                                     ${price}
                                 </Typography>
-                                <Link><Button variant="contained" color="success" sx={{ mt: 3, ml: 5 }}>Add to Cart</Button></Link>
-                                {/* <Link to={`/desserts/${_id}`}><Button variant="contained" sx={{ mt: 3, ml: 5 }}>See Details</Button></Link> */}
+                                <Link><Button onClick={() => handleAddToCart(items)} variant="contained" color="success" sx={{ mt: 3, ml: 5 }}>Add to Cart</Button></Link>
+                                <Link to={`/allMenu/${_id}`}><Button variant="contained" sx={{ mt: 3, ml: 5 }}>See Details</Button></Link>
                             </Box>
                         </CardContent>
                     </Box>
@@ -58,8 +121,8 @@ export default function FoodsCart({items}) {
                                 <Typography variant="h4" color="#FFA500" component="div" sx={{ pt: 3 }}>
                                     ${price}
                                 </Typography>
-                                <Link><Button variant="contained" color="success" sx={{ mt: 3, width: 150 }}>ADD TO CART</Button></Link>
-                                {/* <Link to={`/desserts/${_id}`}><Button variant="contained" sx={{ mt: 3, width: 150 }}>See Details</Button></Link> */}
+                                <Link><Button onClick={() => handleAddToCart(items)} variant="contained" color="success" sx={{ mt: 3, width: 150 }}>ADD TO CART</Button></Link>
+                                <Link to={`/allMenu/${_id}`}><Button variant="contained" sx={{ mt: 3, width: 150 }}>See Details</Button></Link>
                             </Box>
                         </CardContent>
                     </Box>

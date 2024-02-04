@@ -28,6 +28,7 @@ import AdminRoute from './components/PrivateRoute/AdminRoute.jsx';
 import AddItem from './components/Dashboard/AddItems/AddItem.jsx';
 import ManageItem from './components/Dashboard/ManageItems/ManageItem.jsx';
 import UpdateItem from './components/Dashboard/UpdateItem/UpdateItem.jsx';
+import Payment from './components/Dashboard/Payment/Payment.jsx';
 
 const router = createBrowserRouter([
   {
@@ -98,6 +99,10 @@ const router = createBrowserRouter([
         path: "/dashboard/updateItem/:id",
         element: <AdminRoute><UpdateItem></UpdateItem></AdminRoute>,
         loader: ({params}) => fetch(`http://localhost:5000/allMenu/${params.id}`)
+      },
+      {
+        path: "/dashboard/payment",
+        element: <Payment></Payment>
       }
     ]
   }

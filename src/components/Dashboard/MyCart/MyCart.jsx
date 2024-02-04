@@ -69,7 +69,7 @@ export default function MyCart() {
               </div>
               <div className="stat-title">TOTAL ITEMS</div>
               <div className="stat-value">{cart?.length || 0}</div>
-              <div className="stat-desc">21% more than last month</div>
+              <div className="stat-desc">We are ready to serve your foods</div>
             </div>
 
             <div className="stat">
@@ -78,7 +78,7 @@ export default function MyCart() {
               </div>
               <div className="stat-title">TOTAL PRICE</div>
               <div className="stat-value">${totalPrice}</div>
-              <div className="stat-desc">21% more than last month</div>
+              <div className="stat-desc mt-3">Offer and discounts are comming soon</div>
             </div>
 
             <div className="stat">
@@ -86,8 +86,12 @@ export default function MyCart() {
                 <FontAwesomeIcon icon={faCreditCard} fade size="2xl" style={{ color: "#FFD43B", }} />
               </div>
               <div className="stat-title">MAKE PAYMENT</div>
-              <div className="stat-value"><button className="btn btn-success btn-outline">Proceed Payment</button></div>
-              <div className="stat-desc">21% more than last month</div>
+              <div className="stat-value">
+                {
+                  cart.length ? <Link to="/dashboard/payment"><button className="btn btn-success btn-outline">Proceed Payment</button></Link> : <button disabled className="btn btn-success btn-outline">Proceed Payment</button>
+                }
+              </div>
+              <div className="stat-desc mt-3">Pay first to enjoy your foods</div>
             </div>
 
           </div>
@@ -132,7 +136,7 @@ export default function MyCart() {
                       </td>
                       <td><button onClick={() => handleDelete(foodItem)} className="btn btn-ghost"><FontAwesomeIcon icon={faTrashCan} size="2xl" style={{ color: "#ff5c5c", }} /></button></td>
                       <th>
-                      <Link to={`/allMenu/${foodItem.menuItemId}`}><button className="btn btn-ghost btn-xs">Details</button></Link>
+                        <Link to={`/allMenu/${foodItem.menuItemId}`}><button className="btn btn-ghost btn-xs">Details</button></Link>
                       </th>
                     </tr>)
                 }
@@ -167,7 +171,11 @@ export default function MyCart() {
                 <FontAwesomeIcon icon={faCreditCard} fade size="2xl" style={{ color: "#FFD43B", }} />
               </div>
               <div className="stat-title">MAKE PAYMENT</div>
-              <div className="stat-value"><button className="btn btn-success btn-outline">Proceed Payment</button></div>
+              <div className="stat-value">
+                {
+                  cart.length ? <Link to="/dashboard/payment"><button className="btn btn-success btn-outline">Proceed Payment</button></Link> : <button disabled className="btn btn-success btn-outline">Proceed Payment</button>
+                }
+              </div>
               <div className="stat-desc">21% more than last month</div>
             </div>
 

@@ -6,6 +6,7 @@ import toast from 'react-hot-toast';
 import { useContext } from 'react';
 import { UserContext } from '../providers/AuthProviders';
 import useCart from './useCart';
+import { selectClasses } from '@mui/material';
 
 export default function SelectedItem() {
 
@@ -27,12 +28,13 @@ export default function SelectedItem() {
     });
 
     const SelectedItem = useLoaderData();
-    const { title, description, price, imageOne, _id } = SelectedItem;
+    const { title, description, price, imageOne, productID } = SelectedItem;
+    // console.log(SelectedItem);
 
     const handleAddToCart = (SelectedItem) => {
         // console.log(item)
         if (user && user.email) {
-            const orderItem = { menuItemId: _id, title, imageOne, price, email: user.email }
+            const orderItem = { menuItemId: productID, title, imageOne, price, email: user.email }
             fetch('http://localhost:5000/carts', {
                 method: 'POST',
                 headers: {

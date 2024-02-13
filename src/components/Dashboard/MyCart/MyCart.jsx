@@ -3,15 +3,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Helmet } from "react-helmet-async";
 import useCart from "../../shared/useCart";
 import Swal from "sweetalert2";
-import useAxiosSecure from "../../shared/useAxiosSecure";
 import { Link } from "react-router-dom";
 
 export default function MyCart() {
 
   const [cart, refetch] = useCart();
-  const [axiosSecure] = useAxiosSecure();
   // console.log(cart);
-  const totalPrice = cart.reduce((sum, item) => parseInt(item.price) + sum, 0);
+  const totalPrice = cart.reduce((sum, item) => parseFloat(item.price) + sum, 0);
 
   const handleDelete = (foods) => {
     console.log(foods._id)

@@ -9,6 +9,8 @@ import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "../providers/AuthProviders";
 import useCart from "../shared/useCart";
 import useAdmin from "../shared/useAdmin";
+import useAxiosSecure from "../shared/useAxiosSecure";
+import { useQuery } from "@tanstack/react-query";
 
 export default function Navbar() {
 
@@ -22,8 +24,9 @@ export default function Navbar() {
     //         .then(data => console.log(data))
     // }, [])
 
+
     const [cart] = useCart();
-    const totalPrice = cart.reduce((sum, item) => item.price + sum, 0);
+    const totalPrice = cart.reduce((sum, item) => parseFloat(item.price) + sum, 0);
     const [state, setState] = useState({
         left: false
     });
@@ -66,7 +69,17 @@ export default function Navbar() {
                 </ListItem></Link>
                 <ListItem disablePadding>
                     <ListItemButton>
-                        <Link to='/'>Shop</Link>
+                        <Link to='/shop'>Shop</Link>
+                    </ListItemButton>
+                </ListItem>
+                <ListItem disablePadding>
+                    <ListItemButton>
+                        <Link to="/dashboard/admin-home">Dashboard</Link>
+                    </ListItemButton>
+                </ListItem>
+                <ListItem disablePadding>
+                    <ListItemButton>
+                        <Link to='/login'>Login</Link>
                     </ListItemButton>
                 </ListItem>
                 <ListItem disablePadding>
@@ -104,7 +117,7 @@ export default function Navbar() {
                     <ul className="menu menu-horizontal md:font-thin md:text-xl px-1">
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/foodmenu">Foods Menu</Link></li>
-                        <li><a>Shop</a></li>
+                        <li><Link to="/shop">Shop</Link></li>
                         <li><a>Contact Us</a></li>
                     </ul>
                 </div>
@@ -145,7 +158,9 @@ export default function Navbar() {
                                             <span className="badge">New</span>
                                         </a>
                                     </li>
-                                    <li><Link to="/dashboard">Dashboard</Link></li>
+                                    {
+                                        isAdmin ? <li><Link to="/dashboard/admin-home">Dashboard</Link></li> : <li><Link to="/dashboard/user-profile">Dashboard</Link></li>
+                                    }
                                     <li><a onClick={handlelogout}>Logout</a></li>
                                 </ul> : <span className="hidden"></span>
                             }

@@ -31,21 +31,22 @@ export default function AuthProvider({ children }) {
 
     useEffect(() => {
         const unsubscibe = onAuthStateChanged(auth, currentUser => {
-            console.log('auth state change', currentUser);
+            // console.log('auth state change', currentUser);
             setUser(currentUser);
 
             //get and set token
             if(currentUser){
                 axios.post('http://localhost:5000/jwt', {email: currentUser.email})
                 .then(data =>{
-                    console.log(data.data.token)
+                    // console.log(data.data.token)
                     localStorage.setItem('access-token', data.data.token)
+                    setLoading(false);
                 })
             }
             else{
-                localStorage.removeItem('access-token')
+                localStorage.removeItem('access-token');
+                setLoading(false);
             }
-            setLoading(false);
         });
 
         return () => {

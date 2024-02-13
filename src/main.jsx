@@ -22,13 +22,16 @@ import AuthProvider from './components/providers/AuthProviders.jsx';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute.jsx';
 import Dashboard from './components/Dashboard/Dashboard.jsx';
 import MyCart from './components/Dashboard/MyCart/MyCart.jsx';
-import Profile from './components/Dashboard/Profile/Profile.jsx';
 import AllUsers from './components/Dashboard/AllUsers/AllUsers.jsx';
 import AdminRoute from './components/PrivateRoute/AdminRoute.jsx';
 import AddItem from './components/Dashboard/AddItems/AddItem.jsx';
 import ManageItem from './components/Dashboard/ManageItems/ManageItem.jsx';
 import UpdateItem from './components/Dashboard/UpdateItem/UpdateItem.jsx';
 import Payment from './components/Dashboard/Payment/Payment.jsx';
+import PaymentHistory from './components/Dashboard/PaymentHistory/PaymentHistory.jsx';
+import UserHome from './components/Dashboard/UserHome/UserHome.jsx';
+import AdminHome from './components/Dashboard/AdminHome/AdminHome.jsx';
+import Shop from './components/Shop/Shop.jsx';
 
 const router = createBrowserRouter([
   {
@@ -46,6 +49,10 @@ const router = createBrowserRouter([
       {
         path: "foodmenu",
         element: <FoodMenu></FoodMenu>
+      },
+      {
+        path: "shop",
+        element: <Shop></Shop>
       },
       {
         path: "desserts",
@@ -76,8 +83,12 @@ const router = createBrowserRouter([
     element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     children: [
       {
-        path: "/dashboard",
-        element: <Profile></Profile>
+        path: "/dashboard/user-profile",
+        element: <UserHome></UserHome>
+      },
+      {
+        path: "/dashboard/admin-home",
+        element: <AdminHome></AdminHome>
       },
       {
         path: "/dashboard/mycart",
@@ -103,6 +114,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/payment",
         element: <Payment></Payment>
+      },
+      {
+        path: "/dashboard/payment-history",
+        element: <PaymentHistory></PaymentHistory>
       }
     ]
   }

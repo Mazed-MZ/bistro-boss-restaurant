@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../shared/useAxiosSecure";
+import useAuth from "../../shared/useAuth";
 
 export default function AllUsers() {
 
@@ -27,7 +28,28 @@ export default function AllUsers() {
                     Swal.fire({
                         position: "top-center",
                         icon: "success",
-                        title: `${users.name} is admin now`,
+                        title: `${users.displayName} is admin now`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+            })
+    }
+
+
+    const handleMakeUser = (users) => {
+        console.log(users);
+        fetch(`http://localhost:5000/user/make-user/${users._id}`, {
+            method: 'PATCH'
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount) {
+                    refetch()
+                    Swal.fire({
+                        position: "top-center",
+                        icon: "success",
+                        title: `${users.displayName} is user now`,
                         showConfirmButton: false,
                         timer: 1500
                     });
@@ -195,7 +217,7 @@ export default function AllUsers() {
                                                 {userData.email}
                                             </td>
                                             {
-                                                userData.role === 'admin' ? <td><button className="btn btn-ghost"><FontAwesomeIcon size="2xl" icon={faUserShield} style={{ color: "#63E6BE", }} /></button></td> : <td><button onClick={() => handleMakeAdmin(userData)} className="btn btn-ghost"><FontAwesomeIcon icon={faUser} size="2xl" style={{ color: "#FFD43B", }} /></button></td>
+                                                userData.role === 'admin' ? <td><button onClick={() => handleMakeUser(userData)} className="btn btn-ghost"><FontAwesomeIcon size="2xl" icon={faUserShield} style={{ color: "#63E6BE", }} /></button></td> : <td><button onClick={() => handleMakeAdmin(userData)} className="btn btn-ghost"><FontAwesomeIcon icon={faUser} size="2xl" style={{ color: "#FFD43B", }} /></button></td>
                                             }
                                             <td><button onClick={() => handleDeleteUser(userData)} className="btn btn-ghost"><FontAwesomeIcon icon={faTrashCan} size="2xl" style={{ color: "#ff5c5c", }} /></button></td>
                                         </tr>)

@@ -3,7 +3,7 @@ import { loadStripe } from '@stripe/stripe-js';
 import { Helmet } from 'react-helmet-async';
 import CheckOutForm from './CheckOutForm';
 
-const stripePromise = loadStripe('pk_test_6pRNASCoBOKtIshFeQd4XMUh');
+const stripePromise = loadStripe('pk_test_51Ofzj6HltYrJSEDhsB0l1hbhLGjmV6OiSz68aHIFRpRXd0RRELkx293WgtWpvJUHh3BJcCtQak2wRUxrD6BPTb5d00A3PPZdkr');
 
 export default function Payment() {
     return (

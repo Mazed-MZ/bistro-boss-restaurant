@@ -5,14 +5,13 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button } from '@mui/material';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { UserContext } from '../providers/AuthProviders';
-import useCart from './useCart';
 import { useContext } from 'react';
+import { UserContext } from '../../providers/AuthProviders';
 import Swal from 'sweetalert2';
+import useCart from '../../shared/useCart';
 
-export default function FoodsCart({items}) {
-
-    const { title, description, price, imageOne, productID, _id } = items;
+export default function BurgerCart({ burgerInfo }) {
+    const { title, description, price, imageOne, _id } = burgerInfo;
 
     const { user } = useContext(UserContext);
     const navigate = useNavigate();
@@ -31,10 +30,10 @@ export default function FoodsCart({items}) {
         }
     });
 
-    const handleAddToCart = (items) => {
+    const handleDessertItem = (item) => {
         // console.log(item)
         if (user && user.email) {
-            const orderItem = { menuItemId: productID, title, imageOne, price, email: user.email }
+            const orderItem = { menuItemId: _id, title, imageOne, price, email: user.email }
             fetch('http://localhost:5000/carts', {
                 method: 'POST',
                 headers: {
@@ -49,7 +48,7 @@ export default function FoodsCart({items}) {
                         refetch();
                         Toast.fire({
                             icon: "success",
-                            title: `${orderItem.title} is Added successfully`
+                            title: "Items Added successfully"
                         });
                     }
                 })
@@ -71,8 +70,6 @@ export default function FoodsCart({items}) {
         }
     }
 
-
-
     return (
         <div>
             {/* -------->>> Desktop Version <<<<----- */}
@@ -88,7 +85,7 @@ export default function FoodsCart({items}) {
                                 <Typography variant="h4" color="#FFA500" component="div" sx={{ pt: 3 }}>
                                     ${price}
                                 </Typography>
-                                <Link><Button onClick={() => handleAddToCart(items)} variant="contained" color="success" sx={{ mt: 3, ml: 5 }}>Add to Cart</Button></Link>
+                                <Link><Button onClick={() => handleDessertItem(burgerInfo)} variant="contained" color="success" sx={{ mt: 3, ml: 5 }}>Add to Cart</Button></Link>
                                 <Link to={`/allMenu/${_id}`}><Button variant="contained" sx={{ mt: 3, ml: 5 }}>See Details</Button></Link>
                             </Box>
                         </CardContent>
@@ -121,7 +118,7 @@ export default function FoodsCart({items}) {
                                 <Typography variant="h4" color="#FFA500" component="div" sx={{ pt: 3 }}>
                                     ${price}
                                 </Typography>
-                                <Link><Button onClick={() => handleAddToCart(items)} variant="contained" color="success" sx={{ mt: 3, width: 150 }}>ADD TO CART</Button></Link>
+                                <Link><Button onClick={() => handleDessertItem(burgerInfo)} variant="contained" color="success" sx={{ mt: 3, width: 150 }}>ADD TO CART</Button></Link>
                                 <Link to={`/allMenu/${_id}`}><Button variant="contained" sx={{ mt: 3, width: 150 }}>See Details</Button></Link>
                             </Box>
                         </CardContent>

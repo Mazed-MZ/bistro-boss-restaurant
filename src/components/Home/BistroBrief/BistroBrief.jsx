@@ -14,8 +14,8 @@ export default function BistroBrief() {
                     </div>
                 </div>
             </div>
-            <div className='bg-black ml-28 mr-28 mt-12 mb-12 p-12'>
-                <h1 className='text-center text-4xl font-mono'>Call Us: +88 0192345678910</h1>
+            <div className='bg-black md:ml-28 md:mr-28 mt-12 mb-12 p-12'>
+                <h1 className='text-center md:text-4xl text-xl font-mono'>Call Us: +880192345678910</h1>
             </div>
         </div>
     )

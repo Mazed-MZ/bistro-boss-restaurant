@@ -26,7 +26,8 @@ export default function UpdateItem() {
         const catagoryThree = form.catagoryThree.value;
         const catagoryFour = form.catagoryFour.value;
         const icon = form.icon.value;
-        const newItemData = { title, description, ingredients, imageOne, imageTwo, imageThree, imageFour, imageFive, price, origin, flag, catagoryOne, catagoryTwo, catagoryThree, catagoryFour, icon };
+        const productID = form.productID.value;
+        const newItemData = { title, description, ingredients, imageOne, imageTwo, imageThree, imageFour, imageFive, price, origin, flag, catagoryOne, catagoryTwo, catagoryThree, catagoryFour, icon, productID };
         console.log(newItemData);
 
         Swal.fire({
@@ -94,7 +95,11 @@ export default function UpdateItem() {
                                     <option>Japan</option>
                                     <option>England</option>
                                     <option>India</option>
+                                    <option>Italy</option>
                                     <option>Nepal</option>
+                                    <option>Australia</option>
+                                    <option>New Zealand</option>
+                                    <option>South Africa</option>
                                     <option>Germany</option>
                                     <option>Finland</option>
                                 </select>
@@ -226,6 +231,12 @@ export default function UpdateItem() {
                                     <span className="label-text text-white font-bold">Add Icon URL (size: 300 X 400 px)</span>
                                 </label>
                                 <input type="text" defaultValue={update.icon} name="icon" className="input input-bordered input-primary w-full max-w-xs" />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text text-white font-bold">Add unique Product ID</span>
+                                </label>
+                                <input type="number" name="productID" required className="input input-bordered input-primary w-full max-w-xs" />
                             </div>
                         </div>
 

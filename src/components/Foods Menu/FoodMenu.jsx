@@ -1,6 +1,8 @@
 import TodayOffer from './TodaysOffer/TodayOffer';
 import Desserts from './Desserts/Desserts';
 import { Helmet } from 'react-helmet-async';
+import Burger from './Burger/Burger';
+import Soup from './Soups/Soup';
 
 export default function FoodMenu() {
     return (
@@ -23,6 +25,12 @@ export default function FoodMenu() {
             </div>
             <div>
                 <Desserts></Desserts>
+            </div>
+            <div>
+                <Burger></Burger>
+            </div>
+            <div>
+                <Soup></Soup>
             </div>
         </div>
     )

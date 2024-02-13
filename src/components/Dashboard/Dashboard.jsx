@@ -38,7 +38,7 @@ export default function Dashboard() {
                                     <>
                                         {/* All user excess this menu */}
                                         <div className='border-base-content border-t-4 pt-5'>
-                                            <li><Link to="/dashboard"><FontAwesomeIcon icon={faUserTie} style={{ color: "#FFD43B", }} />Admin Dashboard</Link></li>
+                                            <li><Link to="/dashboard/admin-home"><FontAwesomeIcon icon={faUserTie} style={{ color: "#FFD43B", }} />Admin Dashboard</Link></li>
                                             <li><Link to="/dashboard/addItem"><FontAwesomeIcon icon={faUtensils} style={{color: "#FFD43B",}} />Add Items</Link></li>
                                             <li><Link to="/dashboard/manageItem"><FontAwesomeIcon icon={faListCheck} style={{color: "#FFD43B",}} />Manage Items</Link></li>
                                             <li><Link to="/d"><FontAwesomeIcon icon={faBook} style={{color: "#FFD43B",}} />Manage Bookings</Link></li>
@@ -48,12 +48,12 @@ export default function Dashboard() {
                                     <>
                                         {/* All user excess this menu */}
                                         <div className='border-base-content border-t-4 pt-5'>
-                                            <li><Link to="/dashboard"><FontAwesomeIcon icon={faUser} style={{ color: "#FFD43B", }} />Profile</Link></li>
+                                            <li><Link to="/dashboard/user-profile"><FontAwesomeIcon icon={faUser} style={{ color: "#FFD43B", }} />Profile</Link></li>
                                             <li><Link to="/dashboard/mycart"><FontAwesomeIcon icon={faCartShopping} style={{ color: "#FFD43B", }} />My Cart <div className="badge font-bold badge-warning gap-1">
                                                 +{cart?.length || 0}
                                             </div></Link></li>
                                             <li><Link to="/"><FontAwesomeIcon icon={faCalendarDays} style={{ color: "#FFD43B", }} />Reservation</Link></li>
-                                            <li><Link to="/"><FontAwesomeIcon icon={faWallet} style={{ color: "#FFD43B", }} />Payment History</Link></li>
+                                            <li><Link to="/dashboard/payment-history"><FontAwesomeIcon icon={faWallet} style={{ color: "#FFD43B", }} />Payment History</Link></li>
                                             <li><Link to="/"><FontAwesomeIcon icon={faStar} style={{ color: "#FFD43B", }} />Add Review</Link></li>
                                         </div>
                                     </>

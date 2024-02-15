@@ -3,10 +3,12 @@ import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { Navigate, useLoaderData, useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import toast from 'react-hot-toast';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { UserContext } from '../providers/AuthProviders';
 import useCart from './useCart';
 import { selectClasses } from '@mui/material';
+import Aos from "aos";
+import 'aos/dist/aos.css';
 
 export default function SelectedItem() {
 
@@ -71,12 +73,16 @@ export default function SelectedItem() {
         }
     }
 
+    useEffect(() => {
+        Aos.init({ duration: 2000 });
+      }, []);
+
     return (
         <div className='mb-28 pt-16'>
 
             {/* ---->>>> Mobile Device <<<<---- */}
             <div className='md:hidden'>
-                <div className="carousel max-w-md mt-12 space-x-4 bg-neutral rounded-box">
+                <div className="carousel max-w-md mt-12 space-x-4 bg-neutral rounded-box" data-aos="fade-down">
                     <div className="carousel-item">
                         <img src={SelectedItem.imageTwo} className="rounded-box" />
                     </div>
@@ -97,23 +103,23 @@ export default function SelectedItem() {
             {/* ---->>>> Desktop Version <<<<<----- */}
             <div className='text-center ml-48 mt-16 md:block hidden'>
                 <div className="carousel rounded-box">
-                    <div className="hover:bg-scale-110 carousel-item hover:ease-in-out hover:delay-150 hover:-translate-y-1 hover:scale-110 duration-500 m-5">
+                    <div className="hover:bg-scale-110 carousel-item hover:ease-in-out hover:delay-150 hover:-translate-y-1 hover:scale-110 duration-500 m-5" data-aos="fade-left">
                         <img src={SelectedItem.imageTwo} alt="Burger" />
                     </div>
-                    <div className="hover:bg-scale-110 carousel-item hover:ease-in-out hover:delay-150 hover:-translate-y-1 hover:scale-110 duration-500 m-5">
+                    <div className="hover:bg-scale-110 carousel-item hover:ease-in-out hover:delay-150 hover:-translate-y-1 hover:scale-110 duration-500 m-5" data-aos="fade-left">
                         <img src={SelectedItem.imageThree} alt="Burger" />
                     </div>
-                    <div className="hover:bg-scale-110 carousel-item hover:ease-in-out hover:delay-150 hover:-translate-y-1 hover:scale-110 duration-500 m-5">
+                    <div className="hover:bg-scale-110 carousel-item hover:ease-in-out hover:delay-150 hover:-translate-y-1 hover:scale-110 duration-500 m-5" data-aos="fade-right">
                         <img src={SelectedItem.imageFour} alt="Burger" />
                     </div>
-                    <div className="hover:bg-scale-110 carousel-item hover:ease-in-out hover:delay-150 hover:-translate-y-1 hover:scale-110 duration-500 m-5">
+                    <div className="hover:bg-scale-110 carousel-item hover:ease-in-out hover:delay-150 hover:-translate-y-1 hover:scale-110 duration-500 m-5" data-aos="fade-right">
                         <img src={SelectedItem.imageFive} alt="Burger" />
                     </div>
                 </div>
             </div>
 
             <div className='flex flex-col lg:flex-row md:ml-56 md:mr-56 m-3'>
-                <div className='text-start'>
+                <div className='text-start' data-aos="fade-down">
                     <h1 className='text-5xl mb-3'>{SelectedItem.title}</h1>
                     <p>{SelectedItem.description}</p>
                     <div className=" md:mt-5 md:p-3 border-violet-700 border-dashed rounded-xl border-2 mt-5 p-3">

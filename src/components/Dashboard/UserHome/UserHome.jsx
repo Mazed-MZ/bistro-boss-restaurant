@@ -32,9 +32,28 @@ export default function UserHome() {
     }
   })
 
+  // const { data: reviews = [] } = useQuery({
+  //   queryFn: async () => {
+  //     const res = await axiosSecure.get('/addreview')
+  //     return res.data;
+  //   },
+  // })
+
+  // const myreviews = reviews.map(reviewInfo => reviewInfo.userData.email)
+
+  // // console.log(myreviews);
+
+  // const { data: myreview = [] } = useQuery({
+  //   queryKey: ['myreview', user.email],
+  //   queryFn: async () => {
+  //     const res = await axiosSecure.get(`/myreview/${myreviews}`)
+  //     return res.data;
+  //   }
+  // })
+
   const payment = payments.reduce((sum, item) => parseFloat(item.price) + sum, 0);
 
-  // console.log(userData);
+  // console.log(myreview);
 
   useEffect(() => {
     Aos.init({ duration: 2000 });
@@ -97,7 +116,6 @@ export default function UserHome() {
           <h1 className="md:text-4xl text-white">Your Activities →</h1>
           <div className="text-left pt-8" data-aos="fade-left">
             <p className="text-2xl pb-3 text-white">• <FontAwesomeIcon icon={faCartShopping} style={{ color: "#f7f7f7", }} /> Total Orders: {payments.length}</p>
-            <p className="text-2xl pb-3 text-white">• <FontAwesomeIcon icon={faStar} style={{ color: "#f7f7f7", }} /> Reviews: </p>
             <p className="text-2xl pb-3 text-white">• <FontAwesomeIcon icon={faCalendarDays} style={{ color: "#f7f7f7", }} /> Bookings: </p>
             <p className="text-2xl pb-3 text-white">• <FontAwesomeIcon icon={faWallet} style={{ color: "#f7f7f7", }} /> Total Payments: ${payment}</p>
           </div>

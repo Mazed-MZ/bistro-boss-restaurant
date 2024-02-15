@@ -30,7 +30,7 @@ export default function Review() {
         const recipe = form.recipe.value;
         const suggestion = form.suggestion.value;
         const care = form.care.value;
-        const reviewData = { rating, recipe, suggestion, care, userData };
+        const reviewData = { rating, recipe, suggestion, care, userData, userEmail: user.email };
         // console.log(reviewData);
         Swal.fire({
             title: 'Are you confirm to add this review?',

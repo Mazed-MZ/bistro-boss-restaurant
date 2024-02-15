@@ -21,6 +21,16 @@ export default function UserHome() {
     }
   })
 
+    const { data: payments = [] } = useQuery({
+        queryKey: ['payments', user.email],
+        queryFn: async () => {
+            const res = await axiosSecure.get(`/payments/${user.email}`)
+            return res.data;
+        }
+    })
+
+    const payment = payments.reduce((sum, item) => parseFloat(item.price) + sum, 0);
+
   // console.log(userData);
 
   return (
@@ -79,10 +89,10 @@ export default function UserHome() {
         <div className='bg-black hidden md:block bg-opacity-55 pt-28 pl-12'>
           <h1 className="md:text-4xl text-white">Your Activities →</h1>
           <div className="text-left pt-8">
-            <p className="text-2xl pb-3 text-white">• <FontAwesomeIcon icon={faCartShopping} style={{ color: "#f7f7f7", }} /> Orders: </p>
+            <p className="text-2xl pb-3 text-white">• <FontAwesomeIcon icon={faCartShopping} style={{ color: "#f7f7f7", }} /> Total Orders: {payments.length}</p>
             <p className="text-2xl pb-3 text-white">• <FontAwesomeIcon icon={faStar} style={{ color: "#f7f7f7", }} /> Reviews: </p>
             <p className="text-2xl pb-3 text-white">• <FontAwesomeIcon icon={faCalendarDays} style={{ color: "#f7f7f7", }} /> Bookings: </p>
-            <p className="text-2xl pb-3 text-white">• <FontAwesomeIcon icon={faWallet} style={{ color: "#f7f7f7", }} /> Payments: </p>
+            <p className="text-2xl pb-3 text-white">• <FontAwesomeIcon icon={faWallet} style={{ color: "#f7f7f7", }} /> Total Payments: ${payment}</p>
           </div>
         </div>
         <div className='bg-black bg-opacity-75 text-center pt-12 pb-12 md:pt-36 md:pb-36'>
@@ -97,10 +107,10 @@ export default function UserHome() {
         <div className='bg-black md:hidden bg-opacity-45 pt-20 pl-8'>
           <h1 className="text-4xl text-white">Your Activities →</h1>
           <div className="pt-8 pb-8">
-            <p className="text-2xl pb-3 text-white">• <FontAwesomeIcon icon={faCartShopping} style={{ color: "#f7f7f7", }} /> Orders: </p>
+            <p className="text-2xl pb-3 text-white">• <FontAwesomeIcon icon={faCartShopping} style={{ color: "#f7f7f7", }} /> Total Orders: {payments.length}</p>
             <p className="text-2xl pb-3 text-white">• <FontAwesomeIcon icon={faStar} style={{ color: "#f7f7f7", }} /> Reviews: </p>
             <p className="text-2xl pb-3 text-white">• <FontAwesomeIcon icon={faCalendarDays} style={{ color: "#f7f7f7", }} /> Bookings: </p>
-            <p className="text-2xl pb-3 text-white">• <FontAwesomeIcon icon={faWallet} style={{ color: "#f7f7f7", }} /> Payments: </p>
+            <p className="text-2xl pb-3 text-white">• <FontAwesomeIcon icon={faWallet} style={{ color: "#f7f7f7", }} /> Total Payments: ${payment}</p>
           </div>
         </div>
       </div>

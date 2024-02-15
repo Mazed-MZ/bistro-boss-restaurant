@@ -54,7 +54,7 @@ export default function Dashboard() {
                                             </div></Link></li>
                                             <li><Link to="/"><FontAwesomeIcon icon={faCalendarDays} style={{ color: "#FFD43B", }} />Reservation</Link></li>
                                             <li><Link to="/dashboard/payment-history"><FontAwesomeIcon icon={faWallet} style={{ color: "#FFD43B", }} />Payment History</Link></li>
-                                            <li><Link to="/"><FontAwesomeIcon icon={faStar} style={{ color: "#FFD43B", }} />Add Review</Link></li>
+                                            <li><Link to="/dashboard/add-review"><FontAwesomeIcon icon={faStar} style={{ color: "#FFD43B", }} />Add Review</Link></li>
                                         </div>
                                     </>
                             }

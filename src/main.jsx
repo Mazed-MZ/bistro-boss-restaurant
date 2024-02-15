@@ -32,6 +32,7 @@ import PaymentHistory from './components/Dashboard/PaymentHistory/PaymentHistory
 import UserHome from './components/Dashboard/UserHome/UserHome.jsx';
 import AdminHome from './components/Dashboard/AdminHome/AdminHome.jsx';
 import Shop from './components/Shop/Shop.jsx';
+import Review from './components/Dashboard/AddReview/Review.jsx';
 
 const router = createBrowserRouter([
   {
@@ -118,6 +119,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/payment-history",
         element: <PaymentHistory></PaymentHistory>
+      },
+      {
+        path: "/dashboard/add-review",
+        element: <Review></Review>
       }
     ]
   }

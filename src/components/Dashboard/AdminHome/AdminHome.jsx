@@ -5,6 +5,9 @@ import { Helmet } from 'react-helmet-async';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBurger, faCoins, faMugHot, faTruck, faUsers } from '@fortawesome/free-solid-svg-icons';
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, PieChart, Pie, Sector, ResponsiveContainer } from 'recharts';
+import { useEffect } from 'react';
+import Aos from "aos";
+import 'aos/dist/aos.css';
 
 const colors = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', 'red', 'pink'];
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
@@ -71,6 +74,9 @@ export default function AdminHome() {
   const pieChartData = chartData.map(data => {
     return { name: data.catagory, value: data.revenue }
   })
+  useEffect(() => {
+    Aos.init({ duration: 2000 });
+  }, []);
 
   return (
     <div>
@@ -79,10 +85,10 @@ export default function AdminHome() {
       </Helmet>
       <div className="pt-12">
         <div className="md:ml-20 md:mr-20">
-          <div className="divider divider-primary"><h1 className="text-4xl font-bold">{userData.displayName ? userData.displayName : 'USER PROFILE'}</h1></div>
+          <div className="divider divider-primary"><h1 className="text-4xl font-bold" data-aos="zoom-out">{userData.displayName ? userData.displayName : 'USER PROFILE'}</h1></div>
         </div>
         <div className="md:ml-72 md:mr-72 mt-8">
-          <div className="divider divider-secondary italic"><p>•→ Welcome back to Bistro Boss Restaurant ←•</p></div>
+          <div className="divider divider-secondary italic" data-aos="zoom-in"><p>•→ Welcome back to Bistro Boss Restaurant ←•</p></div>
         </div>
       </div>
 
@@ -91,7 +97,7 @@ export default function AdminHome() {
       {/* ------>>>>> Desktop Version Statistics <<<<<------ */}
       <div className="hidden md:block text-center pt-8">
         <div className="stats shadow">
-          <div className="stat">
+          <div className="stat" data-aos="fade-left">
             <div className="stat-figure text-secondary">
               <FontAwesomeIcon className="hidden md:block" icon={faCoins} size="2xl" style={{ color: "#FFD43B", }} />
             </div>
@@ -100,7 +106,7 @@ export default function AdminHome() {
             <div className="stat-desc">We are ready to serve your foods</div>
           </div>
 
-          <div className="stat">
+          <div className="stat" data-aos="fade-left">
             <div className="stat-figure text-secondary">
               <FontAwesomeIcon className="hidden md:block" icon={faUsers} size="2xl" style={{ color: "#FFD43B", }} />
             </div>
@@ -109,7 +115,7 @@ export default function AdminHome() {
             <div className="stat-desc mt-3">Offer and discounts are comming soon</div>
           </div>
 
-          <div className="stat">
+          <div className="stat" data-aos="zoom-out">
             <div className="stat-figure text-secondary">
               <FontAwesomeIcon icon={faBurger} size="2xl" style={{ color: "#FFD43B", }} />
             </div>
@@ -120,7 +126,7 @@ export default function AdminHome() {
             <div className="stat-desc mt-3">Pay first to enjoy your foods</div>
           </div>
 
-          <div className="stat">
+          <div className="stat" data-aos="fade-right">
             <div className="stat-figure text-secondary">
               <FontAwesomeIcon icon={faMugHot} size="2xl" style={{ color: "#FFD43B", }} />
             </div>
@@ -131,7 +137,7 @@ export default function AdminHome() {
             <div className="stat-desc mt-3">Pay first to enjoy your foods</div>
           </div>
 
-          <div className="stat">
+          <div className="stat" data-aos="fade-right">
             <div className="stat-figure text-secondary">
               <FontAwesomeIcon icon={faTruck} size="2xl" style={{ color: "#FFD43B", }} />
             </div>
@@ -150,7 +156,7 @@ export default function AdminHome() {
       {/* ------>>>> Mobile version statistics <<<<------ */}
       <div className="text-center md:hidden pt-12 pb-12">
         <div className="stats stats-vertical shadow">
-          <div className="stat">
+          <div className="stat" data-aos="fade-left">
             <div className="stat-figure text-secondary">
               <FontAwesomeIcon icon={faCoins} size="2xl" fade style={{ color: "#FFD43B", }} />
             </div>
@@ -159,7 +165,7 @@ export default function AdminHome() {
             <div className="stat-desc">21% more than last month</div>
           </div>
 
-          <div className="stat">
+          <div className="stat" data-aos="fade-left">
             <div className="stat-figure text-secondary">
               <FontAwesomeIcon icon={faUsers} fade size="2xl" style={{ color: "#FFD43B", }} />
             </div>
@@ -168,7 +174,7 @@ export default function AdminHome() {
             <div className="stat-desc">21% more than last month</div>
           </div>
 
-          <div className="stat">
+          <div className="stat" data-aos="zoom-out">
             <div className="stat-figure text-secondary">
               <FontAwesomeIcon icon={faBurger} fade size="2xl" style={{ color: "#FFD43B", }} />
             </div>
@@ -179,7 +185,7 @@ export default function AdminHome() {
             <div className="stat-desc">21% more than last month</div>
           </div>
 
-          <div className="stat">
+          <div className="stat" data-aos="fade-right">
             <div className="stat-figure text-secondary">
               <FontAwesomeIcon icon={faMugHot} fade size="2xl" style={{ color: "#FFD43B", }} />
             </div>
@@ -190,7 +196,7 @@ export default function AdminHome() {
             <div className="stat-desc">21% more than last month</div>
           </div>
 
-          <div className="stat">
+          <div className="stat" data-aos="fade-right">
             <div className="stat-figure text-secondary">
               <FontAwesomeIcon icon={faTruck} fade size="2xl" style={{ color: "#FFD43B", }} />
             </div>

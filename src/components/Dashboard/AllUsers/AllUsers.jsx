@@ -5,6 +5,9 @@ import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../shared/useAxiosSecure";
 import useAuth from "../../shared/useAuth";
+import { useEffect } from "react";
+import Aos from "aos";
+import 'aos/dist/aos.css';
 
 export default function AllUsers() {
 
@@ -86,6 +89,9 @@ export default function AllUsers() {
             }
         });
     }
+    useEffect(() => {
+        Aos.init({ duration: 2000 });
+      }, []);
 
 
     return (
@@ -107,19 +113,19 @@ export default function AllUsers() {
                 {/* ------>>>>> Desktop Version Statistics <<<<<------ */}
                 <div className="hidden md:block text-center pt-12 pb-12">
                     <div className="stats bg-rose-950 shadow">
-                        <div className="stat">
+                        <div className="stat" data-aos="fade-left">
                             <div className="stat-title pb-3">User Icon</div>
                             <div className="stat-value text-primary pb-3"><FontAwesomeIcon icon={faUser} size="2xl" style={{ color: "#FFD43B", }} /></div>
                             <div className="stat-desc">Any user role can be changed by admin</div>
                         </div>
 
-                        <div className="stat">
+                        <div className="stat" data-aos="zoom-out">
                             <div className="stat-title pb-3">Admin Icon</div>
                             <div className="stat-value text-secondary pb-3"><FontAwesomeIcon size="2xl" icon={faUserShield} style={{ color: "#63E6BE", }} /></div>
                             <div className="stat-desc">Admin can change anything but the role of admin cannot be changed</div>
                         </div>
 
-                        <div className="stat">
+                        <div className="stat" data-aos="fade-right">
                             <div className="stat-title pb-3">
                                 Total User {users?.length}
                             </div>

@@ -1,5 +1,8 @@
 import Swal from 'sweetalert2';
 import { Helmet } from 'react-helmet-async';
+import { useEffect } from 'react';
+import Aos from "aos";
+import 'aos/dist/aos.css';
 
 export default function AddItem() {
 
@@ -48,6 +51,10 @@ export default function AddItem() {
             })
     }
 
+    useEffect(() => {
+        Aos.init({ duration: 2000 });
+      }, []);
+
     return (
         <div>
             <Helmet>
@@ -56,10 +63,10 @@ export default function AddItem() {
             <div>
                 <div className="pt-12">
                     <div className="md:ml-20 md:mr-20">
-                        <div className="divider divider-primary"><h1 className="text-4xl font-bold">Add New Item</h1></div>
+                        <div className="divider divider-primary"><h1 className="text-4xl font-bold" data-aos="zoom-out">Add New Item</h1></div>
                     </div>
                     <div className="md:ml-72 md:mr-72 mt-8">
-                        <div className="divider divider-secondary italic"><p>•→ What's new? ←•</p></div>
+                        <div className="divider divider-secondary italic" data-aos="zoom-in"><p>•→ What's new? ←•</p></div>
                     </div>
                 </div>
 

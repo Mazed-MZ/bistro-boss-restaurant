@@ -2,6 +2,9 @@ import { useQuery } from '@tanstack/react-query';
 import useAuth from '../../shared/useAuth';
 import useAxiosSecure from '../../shared/useAxiosSecure';
 import { Helmet } from 'react-helmet-async';
+import Aos from "aos";
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 
 export default function PaymentHistory() {
 
@@ -16,7 +19,11 @@ export default function PaymentHistory() {
         }
     })
 
-    console.log(payments);
+    // console.log(payments);
+
+    useEffect(() => {
+        Aos.init({ duration: 2000 });
+      }, []);
 
     return (
         <div>
@@ -25,10 +32,10 @@ export default function PaymentHistory() {
             </Helmet>
             <div className="pt-12">
                 <div className="md:ml-20 md:mr-20">
-                    <div className="divider divider-primary"><h1 className="text-4xl font-bold">Your Payment History</h1></div>
+                    <div className="divider divider-primary"><h1 className="text-4xl font-bold" data-aos="zoom-out">Your Payment History</h1></div>
                 </div>
                 <div className="md:ml-72 md:mr-72 mt-8">
-                    <div className="divider divider-secondary italic"><p>•→ Payment Details ←•</p></div>
+                    <div className="divider divider-secondary italic" data-aos="zoom-in"><p>•→ Payment Details ←•</p></div>
                 </div>
             </div>
 

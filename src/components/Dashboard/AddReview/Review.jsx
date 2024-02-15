@@ -5,6 +5,9 @@ import Swal from 'sweetalert2';
 import useAuth from '../../shared/useAuth';
 import useAxiosSecure from '../../shared/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
+import { useEffect } from 'react';
+import Aos from "aos";
+import 'aos/dist/aos.css';
 
 export default function Review() {
 
@@ -62,14 +65,20 @@ export default function Review() {
             }
         });
     }
+
+    useEffect(() => {
+        Aos.init({ duration: 2000 });
+      }, []);
+
+
     return (
         <div>
             <div className="pt-12">
                 <div className="md:ml-20 md:mr-20">
-                    <div className="divider divider-primary"><h1 className="text-4xl font-bold">GIVE A REVIEW</h1></div>
+                    <div className="divider divider-primary"><h1 className="text-4xl font-bold" data-aos="zoom-out">GIVE A REVIEW</h1></div>
                 </div>
                 <div className="md:ml-72 md:mr-72 mt-8">
-                    <div className="divider divider-secondary italic"><p>•→ Sharing is Caring!!! ←•</p></div>
+                    <div className="divider divider-secondary italic" data-aos="zoom-in"><p>•→ Sharing is Caring!!! ←•</p></div>
                 </div>
             </div>
             <div className="bg-slate-500 md:m-16 p-8">

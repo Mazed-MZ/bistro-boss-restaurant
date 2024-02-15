@@ -1,11 +1,17 @@
 import { useEffect, useState } from 'react'
 import DessertCart from './DessertCart';
 import useMenu from '../../shared/AllMenuData';
+import Aos from "aos";
+import 'aos/dist/aos.css';
 
 export default function Desserts() {
 
     const [menu] = useMenu();
     const desserts = menu.filter(item => item.catagoryFour === 'dessert');
+
+    useEffect(() => {
+        Aos.init({ duration: 2000 });
+    }, []);
 
     return (
         <div>
@@ -13,7 +19,7 @@ export default function Desserts() {
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="hero-content text-center text-neutral-content">
                     <div className="max-w-lg">
-                        <h1 className="mb-5 text-8xl font-bold font-Times">DESSERTS</h1>
+                        <h1 className="mb-5 text-8xl font-bold font-Times" data-aos="fade-left">DESSERTS</h1>
                     </div>
                 </div>
             </div>

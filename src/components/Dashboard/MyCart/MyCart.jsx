@@ -4,6 +4,9 @@ import { Helmet } from "react-helmet-async";
 import useCart from "../../shared/useCart";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import Aos from "aos";
+import 'aos/dist/aos.css';
 
 export default function MyCart() {
 
@@ -42,6 +45,10 @@ export default function MyCart() {
     });
   }
 
+  useEffect(() => {
+    Aos.init({ duration: 2000 });
+  }, []);
+
   return (
     <div>
       <Helmet>
@@ -50,10 +57,10 @@ export default function MyCart() {
       <div>
         <div className="pt-12">
           <div className="md:ml-20 md:mr-20">
-            <div className="divider divider-primary"><h1 className="text-4xl font-bold">Your Cart Items</h1></div>
+            <div className="divider divider-primary"><h1 className="text-4xl font-bold" data-aos="zoom-out">Your Cart Items</h1></div>
           </div>
           <div className="md:ml-72 md:mr-72 mt-8">
-            <div className="divider divider-secondary italic"><p>•→ Want to add more? ←•</p></div>
+            <div className="divider divider-secondary italic" data-aos="zoom-in"><p>•→ Want to add more? ←•</p></div>
           </div>
         </div>
 
@@ -61,7 +68,7 @@ export default function MyCart() {
         {/* ------>>>>> Desktop Version Statistics <<<<<------ */}
         <div className="hidden md:block text-center pt-12 pb-12">
           <div className="stats shadow">
-            <div className="stat">
+            <div className="stat" data-aos="fade-left">
               <div className="stat-figure text-secondary">
                 <FontAwesomeIcon className="hidden md:block" icon={faBowlFood} size="2xl" fade style={{ color: "#FFD43B", }} />
               </div>
@@ -79,7 +86,7 @@ export default function MyCart() {
               <div className="stat-desc mt-3">Offer and discounts are comming soon</div>
             </div>
 
-            <div className="stat">
+            <div className="stat" data-aos="fade-right">
               <div className="stat-figure text-secondary">
                 <FontAwesomeIcon icon={faCreditCard} fade size="2xl" style={{ color: "#FFD43B", }} />
               </div>

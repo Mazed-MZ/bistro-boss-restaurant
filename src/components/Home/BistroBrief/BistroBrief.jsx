@@ -1,6 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react';
+import Aos from "aos";
+import 'aos/dist/aos.css';
 
 export default function BistroBrief() {
+
+    useEffect(() => {
+        Aos.init({ duration: 2000 });
+    }, []);
+
     return (
         <div>
             <div className="hero min-h-screen bg-fixed" style={{ backgroundImage: 'url(https://i.ibb.co/SDTWTF9/chef-service.jpg)' }}>
@@ -14,7 +21,10 @@ export default function BistroBrief() {
                     </div>
                 </div>
             </div>
-            <div className='bg-black md:ml-28 md:mr-28 mt-12 mb-12 p-12'>
+            <div className='bg-black md:ml-28 md:mr-28 mt-12 mb-12 p-12' data-aos="fade-left"
+                data-aos-anchor="#example-anchor"
+                data-aos-offset="500"
+                data-aos-duration="500">
                 <h1 className='text-center md:text-4xl text-xl font-mono'>Call Us: +880192345678910</h1>
             </div>
         </div>

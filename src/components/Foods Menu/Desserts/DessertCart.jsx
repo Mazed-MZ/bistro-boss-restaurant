@@ -5,10 +5,12 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button } from '@mui/material';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { UserContext } from '../../providers/AuthProviders';
 import Swal from 'sweetalert2';
 import useCart from '../../shared/useCart';
+import Aos from "aos";
+import 'aos/dist/aos.css';
 
 
 export default function DessertCart({ dessertInfo }) {
@@ -72,12 +74,17 @@ export default function DessertCart({ dessertInfo }) {
         }
     }
 
+    useEffect(() => {
+        Aos.init({ duration: 2000 });
+    }, []);
+
 
     return (
         <div>
 
             {/* -------->>> Desktop Version <<<<----- */}
-            <div className='hidden md:block'>
+            <div className='hidden md:block' data-aos="fade-up"
+                data-aos-anchor-placement="center-bottom">
                 <Card sx={{ display: 'flex', bgcolor: '#330932', m: 1 }}>
                     <Box sx={{ display: 'flex', flexDirection: 'column' }}>
                         <CardContent sx={{ flex: '1 0 auto' }}>
@@ -105,7 +112,8 @@ export default function DessertCart({ dessertInfo }) {
 
 
             {/* ----->>>> Mobile Device <<<<----- */}
-            <div className='md:hidden'>
+            <div className='md:hidden' data-aos="fade-up"
+                data-aos-anchor-placement="center-bottom">
                 <Card sx={{ display: 'flex', bgcolor: '#330932', m: 2 }}>
                     <CardMedia
                         component="img"

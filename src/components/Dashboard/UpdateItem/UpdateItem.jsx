@@ -236,7 +236,7 @@ export default function UpdateItem() {
                                 <label className="label">
                                     <span className="label-text text-white font-bold">Add unique Product ID</span>
                                 </label>
-                                <input type="number" name="productID" required className="input input-bordered input-primary w-full max-w-xs" />
+                                <input type="number" defaultValue={update.productID} name="productID" required className="input input-bordered input-primary w-full max-w-xs" />
                             </div>
                         </div>
 

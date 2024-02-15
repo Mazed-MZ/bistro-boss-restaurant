@@ -62,7 +62,7 @@ export default function Dashboard() {
                             <div className='border-t-2 border-base-content'>
                                 <li><Link to="/"><FontAwesomeIcon icon={faHouse} style={{ color: "#FFD43B", }} />Home</Link></li>
                                 <li><Link to="/foodmenu"><FontAwesomeIcon icon={faBars} style={{ color: "#FFD43B", }} />Foods Menu</Link></li>
-                                <li><Link to="/"><FontAwesomeIcon icon={faStore} style={{ color: "#FFD43B", }} />Shop</Link></li>
+                                <li><Link to="/shop"><FontAwesomeIcon icon={faStore} style={{ color: "#FFD43B", }} />Shop</Link></li>
                                 <li><Link to="/"><FontAwesomeIcon icon={faEnvelope} style={{ color: "#FFD43B", }} />Contact</Link></li>
                             </div>
                         </ul>

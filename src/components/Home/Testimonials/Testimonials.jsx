@@ -42,7 +42,7 @@ export default function Testimonials() {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/addreview/${reviewInfo._id}`, {
+                fetch(`https://bistro-boss-restaurant-server.onrender.com/addreview/${reviewInfo._id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

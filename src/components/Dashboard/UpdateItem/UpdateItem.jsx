@@ -40,7 +40,7 @@ export default function UpdateItem() {
             confirmButtonText: "Yes, Upgrade it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/allMenu/${update._id}`, {
+                fetch(`https://bistro-boss-restaurant-server.onrender.com/allMenu/${update._id}`, {
                     method: 'PUT',
                     headers: {
                         'content-type': 'application/json'

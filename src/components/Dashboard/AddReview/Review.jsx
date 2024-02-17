@@ -41,7 +41,7 @@ export default function Review() {
             confirmButtonText: "Yes, add it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch('http://localhost:5000/addreview', {
+                fetch('https://bistro-boss-restaurant-server.onrender.com/addreview', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

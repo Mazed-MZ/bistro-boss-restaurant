@@ -29,7 +29,7 @@ export default function AddItem() {
 
         // console.log(newItemData);
 
-        fetch('http://localhost:5000/newItem', {
+        fetch('https://bistro-boss-restaurant-server.onrender.com/newItem', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

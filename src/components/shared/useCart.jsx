@@ -14,7 +14,7 @@ const useCart = () => {
 
         //====>>> Just for Token <<<====
         // queryFn: async () => {
-        //     const response = await fetch(`http://localhost:5000/carts?email=${user?.email}`, {headers: {
+        //     const response = await fetch(`https://bistro-boss-restaurant-server.onrender.com/carts?email=${user?.email}`, {headers: {
         //         authorization: `bearer ${token}`
         //     }})
         //     if (!response.ok) {

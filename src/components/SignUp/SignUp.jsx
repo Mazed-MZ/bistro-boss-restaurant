@@ -57,7 +57,7 @@ export default function SignUp() {
                         icon: "success"
                     });
 
-                    fetch('http://localhost:5000/signinuser', {
+                    fetch('https://bistro-boss-restaurant-server.onrender.com/signinuser', {
                         method: 'POST',
                         body: formData
                     })
@@ -108,7 +108,7 @@ export default function SignUp() {
                         icon: "success"
                     });
                 }
-                fetch('http://localhost:5000/googleuser', {
+                fetch('https://bistro-boss-restaurant-server.onrender.com/googleuser', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -145,7 +145,7 @@ export default function SignUp() {
     //     formData.append('file', file);
     //     // console.log(formData)
 
-    //     fetch('http://localhost:5000/addDoctor', {
+    //     fetch('https://bistro-boss-restaurant-server.onrender.com/addDoctor', {
     //         method: 'POST',
     //         body: formData
     //     })

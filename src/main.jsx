@@ -62,7 +62,7 @@ const router = createBrowserRouter([
       {
         path: "/allmenu/:catagoryId",
         element: <SelectedItem></SelectedItem>,
-        loader: ({ params }) => fetch(`http://localhost:5000/allmenu/${params.catagoryId}`)
+        loader: ({ params }) => fetch(`https://bistro-boss-restaurant-server.onrender.com/allmenu/${params.catagoryId}`)
       },
       {
         path: "/login",
@@ -75,7 +75,7 @@ const router = createBrowserRouter([
       // {
       //   path: "//:dessertId",
       //   element: <SelectedDessert></SelectedDessert>,
-      //   loader: ({ params }) => fetch(`http://localhost:5000/desserts/${params.dessertId}`)
+      //   loader: ({ params }) => fetch(`https://bistro-boss-restaurant-server.onrender.com/desserts/${params.dessertId}`)
       // }
     ]
   },
@@ -110,7 +110,7 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/updateItem/:id",
         element: <AdminRoute><UpdateItem></UpdateItem></AdminRoute>,
-        loader: ({params}) => fetch(`http://localhost:5000/allMenu/${params.id}`)
+        loader: ({params}) => fetch(`https://bistro-boss-restaurant-server.onrender.com/allMenu/${params.id}`)
       },
       {
         path: "/dashboard/payment",

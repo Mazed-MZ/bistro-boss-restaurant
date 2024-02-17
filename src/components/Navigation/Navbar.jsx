@@ -19,7 +19,7 @@ export default function Navbar() {
 
     // const { emailUser, setEmailUser } = useState([]);
     // useEffect(() => {
-    //     fetch('http://localhost:5000/user')
+    //     fetch('https://bistro-boss-restaurant-server.onrender.com/user')
     //         .then(res => res.json())
     //         .then(data => console.log(data))
     // }, [])

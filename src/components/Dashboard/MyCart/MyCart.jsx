@@ -26,7 +26,7 @@ export default function MyCart() {
       confirmButtonText: "Yes, delete it!"
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/carts/${foods._id}`, {
+        fetch(`https://bistro-boss-restaurant-server.onrender.com/carts/${foods._id}`, {
           method: 'DELETE'
         })
           .then(res => res.json())

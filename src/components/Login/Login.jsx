@@ -37,7 +37,7 @@ export default function Login() {
                         icon: "success"
                     });
                 }
-                fetch('http://localhost:5000/loginuser', {
+                fetch('https://bistro-boss-restaurant-server.onrender.com/loginuser', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -67,7 +67,7 @@ export default function Login() {
                     });
                 }
 
-                fetch('http://localhost:5000/googleuser', {
+                fetch('https://bistro-boss-restaurant-server.onrender.com/googleuser', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

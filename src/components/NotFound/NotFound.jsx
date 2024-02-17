@@ -20,7 +20,7 @@ export default function NotFound() {
         formData.append('file', file);
         // console.log(formData)
 
-        fetch('http://localhost:5000/addImage', {
+        fetch('https://bistro-boss-restaurant-server.onrender.com/addImage', {
             method: 'POST',
             body: formData
         })
@@ -32,7 +32,7 @@ export default function NotFound() {
     return (
         <div className='text-center pl-10 pr-10 pt-20'>
             <div>
-                <div className="hero md:min-h-screen" style={{ backgroundImage: 'url(http://localhost:5000/404.gif)' }}>
+                <div className="hero md:min-h-screen" style={{ backgroundImage: 'url(https://bistro-boss-restaurant-server.onrender.com/404.gif)' }}>
                     <div className="hero-overlay bg-opacity-60"></div>
                     <div className="hero-content text-center text-neutral-content">
                         <div className="max-w-md">

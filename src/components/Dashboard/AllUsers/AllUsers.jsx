@@ -20,7 +20,7 @@ export default function AllUsers() {
 
     const handleMakeAdmin = (users) => {
         console.log(users);
-        fetch(`http://localhost:5000/user/admin/${users._id}`, {
+        fetch(`https://bistro-boss-restaurant-server.onrender.com/user/admin/${users._id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())
@@ -41,7 +41,7 @@ export default function AllUsers() {
 
     const handleMakeUser = (users) => {
         console.log(users);
-        fetch(`http://localhost:5000/user/make-user/${users._id}`, {
+        fetch(`https://bistro-boss-restaurant-server.onrender.com/user/make-user/${users._id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())
@@ -71,7 +71,7 @@ export default function AllUsers() {
             confirmButtonText: "Yes, remove it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/user/${user.email}`, {
+                fetch(`https://bistro-boss-restaurant-server.onrender.com/user/${user.email}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

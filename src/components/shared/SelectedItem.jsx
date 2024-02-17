@@ -1,12 +1,10 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
-import { Navigate, useLoaderData, useLocation, useNavigate } from 'react-router-dom';
+import { useLoaderData, useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import toast from 'react-hot-toast';
 import { useContext, useEffect } from 'react';
 import { UserContext } from '../providers/AuthProviders';
 import useCart from './useCart';
-import { selectClasses } from '@mui/material';
 import Aos from "aos";
 import 'aos/dist/aos.css';
 
@@ -30,10 +28,10 @@ export default function SelectedItem() {
     });
 
     const SelectedItem = useLoaderData();
-    const { title, description, price, imageOne, productID } = SelectedItem;
+    const { title, price, imageOne, productID } = SelectedItem;
     // console.log(SelectedItem);
 
-    const handleAddToCart = (SelectedItem) => {
+    const handleAddToCart = () => {
         // console.log(item)
         if (user && user.email) {
             const orderItem = { menuItemId: productID, title, imageOne, price, email: user.email }
@@ -75,7 +73,7 @@ export default function SelectedItem() {
 
     useEffect(() => {
         Aos.init({ duration: 2000 });
-      }, []);
+    }, []);
 
     return (
         <div className='mb-28 pt-16'>

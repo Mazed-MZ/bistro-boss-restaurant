@@ -1,6 +1,5 @@
 import Rating from '@mui/material/Rating';
 import Stack from '@mui/material/Stack';
-import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import useAuth from '../../shared/useAuth';
 import useAxiosSecure from '../../shared/useAxiosSecure';

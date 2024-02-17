@@ -103,7 +103,7 @@ export default function AddItem() {
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
-                                        <span className="label-text text-white font-bold">Flag's URL of Country Origin</span>
+                                        <span className="label-text text-white font-bold">Flag URL of Country Origin</span>
                                     </label>
                                     <input type="text" placeholder="https://www." name="flag" className="input input-bordered input-primary w-full max-w-xs" />
                                 </div>

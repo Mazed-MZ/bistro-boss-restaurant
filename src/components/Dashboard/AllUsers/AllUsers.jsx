@@ -4,7 +4,6 @@ import { useQuery } from "@tanstack/react-query";
 import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../shared/useAxiosSecure";
-import useAuth from "../../shared/useAuth";
 import { useEffect } from "react";
 import Aos from "aos";
 import 'aos/dist/aos.css';

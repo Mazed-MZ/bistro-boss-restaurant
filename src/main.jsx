@@ -15,7 +15,6 @@ import FoodMenu from './components/Foods Menu/FoodMenu.jsx';
 import NotFound from './components/NotFound/NotFound.jsx';
 import { HelmetProvider } from 'react-helmet-async';
 import Desserts from './components/Foods Menu/Desserts/Desserts.jsx';
-import SelectedItem from './components/shared/selectedItem.jsx';
 import Login from './components/Login/Login.jsx';
 import SignUp from './components/SignUp/SignUp.jsx';
 import AuthProvider from './components/providers/AuthProviders.jsx';
@@ -33,6 +32,7 @@ import UserHome from './components/Dashboard/UserHome/UserHome.jsx';
 import AdminHome from './components/Dashboard/AdminHome/AdminHome.jsx';
 import Shop from './components/Shop/Shop.jsx';
 import Review from './components/Dashboard/AddReview/Review.jsx';
+import SelectedItem from './components/shared/selectedItem.jsx';
 
 const router = createBrowserRouter([
   {

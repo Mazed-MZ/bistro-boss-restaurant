@@ -8,7 +8,7 @@ const useAxiosSecure = () => {
     const { logOut } = useAuth();
 
     const axiosSecure = axios.create({
-        baseURL: 'http://localhost:5000'
+        baseURL: 'https://bistro-boss-restaurant-server.onrender.com'
     });
 
     useEffect(() => {

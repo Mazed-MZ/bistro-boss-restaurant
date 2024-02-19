@@ -60,9 +60,9 @@ const router = createBrowserRouter([
         element: <Desserts></Desserts>
       },
       {
-        path: "/carts/:catagoryId",
+        path: "/allMenu/:catagoryId",
         element: <SelectedItem></SelectedItem>,
-        loader: ({ params }) => fetch(`https://bistro-boss-restaurant-server.onrender.com/carts/${params.catagoryId}`)
+        loader: ({ params }) => fetch(`https://bistro-boss-restaurant-server.onrender.com/allMenu/${params.catagoryId}`)
       },
       {
         path: "/login",

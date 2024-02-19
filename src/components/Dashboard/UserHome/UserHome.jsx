@@ -32,6 +32,14 @@ export default function UserHome() {
     }
   })
 
+  const { data: stats = [] } = useQuery({
+    queryKey: ['admin-state'],
+    queryFn: async () => {
+      const res = await axiosSecure.get('/admin-state');
+      return res.data;
+    }
+  });
+
   // const { data: reviews = [] } = useQuery({
   //   queryFn: async () => {
   //     const res = await axiosSecure.get('/addreview')
@@ -83,7 +91,7 @@ export default function UserHome() {
               <FontAwesomeIcon className="hidden md:block" icon={faList} size="2xl" fade style={{ color: "#FFD43B", }} />
             </div>
             <div className="stat-title">MENU</div>
-            <div className="stat-value">Cart Length</div>
+            <div className="stat-value">{stats.menuItems}</div>
             <div className="stat-desc">We are ready to serve your foods</div>
           </div>
 
@@ -92,7 +100,7 @@ export default function UserHome() {
               <FontAwesomeIcon className="hidden md:block" icon={faStore} fade size="2xl" style={{ color: "#FFD43B", }} />
             </div>
             <div className="stat-title">SHOP</div>
-            <div className="stat-value">Total price</div>
+            <div className="stat-value">{stats.menuItems}</div>
             <div className="stat-desc mt-3">Offer and discounts are comming soon</div>
           </div>
 
@@ -149,8 +157,8 @@ export default function UserHome() {
               <FontAwesomeIcon icon={faList} size="2xl" fade style={{ color: "#FFD43B", }} />
             </div>
             <div className="stat-title">MENU</div>
-            <div className="stat-value">cart length</div>
-            <div className="stat-desc">21% more than last month</div>
+            <div className="stat-value">{stats.menuItems}</div>
+            <div className="stat-desc">We are ready to serve</div>
           </div>
 
           <div className="stat">
@@ -158,7 +166,7 @@ export default function UserHome() {
               <FontAwesomeIcon icon={faStore} fade size="2xl" style={{ color: "#FFD43B", }} />
             </div>
             <div className="stat-title">SHOP</div>
-            <div className="stat-value">$Price</div>
+            <div className="stat-value">{stats.menuItems}</div>
             <div className="stat-desc">21% more than last month</div>
           </div>
 

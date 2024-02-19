@@ -11,7 +11,7 @@ import 'aos/dist/aos.css';
 export default function MyCart() {
 
   const [cart, refetch] = useCart();
-  // console.log(cart);
+  console.log(cart);
   const totalPrice = cart.reduce((sum, item) => parseFloat(item.price) + sum, 0);
 
   const handleDelete = (foods) => {
@@ -115,7 +115,6 @@ export default function MyCart() {
                   <th>Name</th>
                   <th>Price</th>
                   <th>Action</th>
-                  <th>Details</th>
                 </tr>
               </thead>
               <tbody>
@@ -134,15 +133,15 @@ export default function MyCart() {
                         </div>
                       </td>
                       <td className="font-bold">
-                        <Link to={`/allMenu/${foodItem.menuItemId}`}>{foodItem.title}</Link>
+                        {foodItem.title}
                       </td>
                       <td>
                         <div className="font-bold">${foodItem.price}</div>
                       </td>
                       <td><button onClick={() => handleDelete(foodItem)} className="btn btn-ghost"><FontAwesomeIcon icon={faTrashCan} size="2xl" style={{ color: "#ff5c5c", }} /></button></td>
-                      <th>
+                      {/* <th>
                         <Link to={`/allMenu/${foodItem.menuItemId}`}><button className="btn btn-ghost btn-xs">Details</button></Link>
-                      </th>
+                      </th> */}
                     </tr>)
                 }
               </tbody>

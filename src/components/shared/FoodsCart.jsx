@@ -14,7 +14,7 @@ import 'aos/dist/aos.css';
 
 export default function FoodsCart({ items }) {
 
-    const { title, description, price, imageOne, productID, _id } = items;
+    const { title, description, origin, imageTwo, imageThree, imageFour, imageFive, price, imageOne, productID, ingredients, _id } = items;
 
     const { user } = useContext(UserContext);
     const navigate = useNavigate();
@@ -36,7 +36,7 @@ export default function FoodsCart({ items }) {
     const handleAddToCart = (items) => {
         // console.log(item)
         if (user && user.email) {
-            const orderItem = { menuItemId: productID, title, imageOne, price, email: user.email }
+            const orderItem = { menuItemId: productID, title, description, imageOne, imageTwo, imageThree, imageFour, imageFive, origin, price, email: user.email }
             fetch('https://bistro-boss-restaurant-server.onrender.com/carts', {
                 method: 'POST',
                 headers: {
